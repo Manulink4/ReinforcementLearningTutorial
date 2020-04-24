@@ -155,10 +155,7 @@ class QLearningAgent(ReinforcementAgent):
         action_num = self.actions.get(action)
         legalActions = self.getLegalActions(state)
 
-        if len(legalActions) == 0:
-        #if position == 7 or position == 11:
-            # Q(state, action) < - (1 - self.alpha)
-            # Q(state, action) + self.alpha * (r + 0)
+        if len(legalActions) == 1:
             self.q_table[position][action_num] = (1 - self.alpha) * self.q_table[position][action_num] + \
                                                  self.alpha * (reward + 0)
         else:
